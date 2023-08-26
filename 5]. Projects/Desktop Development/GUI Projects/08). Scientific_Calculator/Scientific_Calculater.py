@@ -49,19 +49,19 @@ class Calc():
             txtDisplay.insert(0, value)
 
     def valid_function(self):
-            if self.op == "add":
-                self.total += self.current
-            if self.op == "sub":
-                self.total -= self.current
-            if self.op == "multi":
-                self.total *= self.current
-            if self.op == "divide":
-                self.total /= self.current
-            if self.op == "mod":
-                self.total %= self.current
-            self.input_value = True
-            self.check_sum = False
-            self.display(self.total)
+        if self.op == "add":
+            self.total += self.current
+        elif self.op == "divide":
+            self.total /= self.current
+        elif self.op == "mod":
+            self.total %= self.current
+        elif self.op == "multi":
+            self.total *= self.current
+        elif self.op == "sub":
+            self.total -= self.current
+        self.input_value = True
+        self.check_sum = False
+        self.display(self.total)
 
     def operation(self, op):
             self.current = float(self.current)
@@ -416,10 +416,7 @@ def help():
 def rate():
     print("Rate us , Please!")
     val = tmsg.askquestion("How was your experience......."," was your experience Good ")
-    if val == "yes":
-        msg = "Greate!  Rate us Please."
-    else:
-        msg = "Tell us what went wrong"
+    msg = "Greate!  Rate us Please." if val == "yes" else "Tell us what went wrong"
     tmsg.showinfo("Experience",msg)
 
 def about():

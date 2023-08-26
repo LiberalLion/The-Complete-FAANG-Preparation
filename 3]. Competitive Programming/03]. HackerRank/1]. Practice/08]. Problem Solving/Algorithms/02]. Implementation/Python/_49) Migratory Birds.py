@@ -30,20 +30,15 @@ def migratoryBirds(arr):
     minKey = 100000
     for key, value in counts.items():
         if value == m:
-            if minKey > key:
-                minKey = key
-                
+            minKey = min(minKey, key)
     return minKey
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    with open(os.environ['OUTPUT_PATH'], 'w') as fptr:
+        arr_count = int(input().strip())
 
-    arr_count = int(input().strip())
+        arr = list(map(int, input().rstrip().split()))
 
-    arr = list(map(int, input().rstrip().split()))
+        result = migratoryBirds(arr)
 
-    result = migratoryBirds(arr)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+        fptr.write(str(result) + '\n')
