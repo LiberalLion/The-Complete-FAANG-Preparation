@@ -2,9 +2,7 @@ class Solution:
     def MissingNumber(self,array,n):
         # code here
         total = n*(n+1)//2
-        s=0
-        for i in range(n-1):
-            s += array[i]
+        s = sum(array[i] for i in range(n-1))
         return total-s;
 
 t=int(input())
